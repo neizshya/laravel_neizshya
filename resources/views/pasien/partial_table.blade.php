@@ -1,23 +1,18 @@
-<thead>
-    <tr>
-        <th>Nama</th>
-        <th>Alamat</th>
-        <th>Telp</th>
-        <th>RS</th>
-        <th>Aksi</th>
-    </tr>
-</thead>
-<tbody>
-    @foreach ($pasiens as $p)
+@if ($pasiens->count())
+    @foreach ($pasiens as $pasien)
         <tr>
-            <td>{{ $p->nama }}</td>
-            <td>{{ $p->alamat }}</td>
-            <td>{{ $p->telepon }}</td>
-            <td>{{ $p->rumahSakit->nama }}</td>
+            <td>{{ $pasien->nama }}</td>
+            <td>{{ $pasien->alamat }}</td>
+            <td>{{ $pasien->telepon }}</td>
+            <td>{{ $pasien->rumahSakit->nama ?? '-' }}</td>
             <td>
-                <a href="{{ route('pasien.edit', $p->id) }}" class="btn btn-sm btn-warning">Edit</a>
-                <button class="btn btn-sm btn-danger btn-delete" data-id="{{ $p->id }}">Hapus</button>
+                <a href="{{ route('pasien.edit', $pasien->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                <button class="btn btn-sm btn-danger btn-delete" data-id="{{ $pasien->id }}">Hapus</button>
             </td>
         </tr>
     @endforeach
-</tbody>
+@else
+    <tr>
+        <td colspan="5" class="text-center">Tidak ada data pasien.</td>
+    </tr>
+@endif

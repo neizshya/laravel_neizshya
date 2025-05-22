@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Test Screening') }}</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts & Bootstrap -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -45,12 +45,9 @@
 </head>
 
 <body>
-    <div id="app">
+    <div id="login_app">
         <div class="d-flex flex-column flex-md-row min-vh-100">
-            <!-- Sidebar -->
-            <div id="sidebar" class="bg-dark text-white p-0 d-md-block">
-                @include('partials._sidebar')
-            </div>
+
 
             <!-- Offcanvas Sidebar for mobile -->
             <div class="offcanvas offcanvas-start d-md-none bg-dark text-white" tabindex="-1" id="mobileSidebar">
@@ -66,12 +63,11 @@
             <div class="flex-fill d-flex flex-column">
                 <!-- Header -->
 
-                @include('partials._header')
                 <!-- Main content -->
                 <main class="flex-fill container-fluid py-3 px-4">
                     @yield('content')
                 </main>
-                @include('partials._footer')
+
 
             </div>
         </div>

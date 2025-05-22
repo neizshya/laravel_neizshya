@@ -12,7 +12,8 @@ class PasienController extends Controller
     public function index()
     {
         $rumahSakits = RumahSakit::all();
-        return view('pasien.index', compact('rumahSakits'));
+        $title = "List Pasien";
+        return view('pasien.index', compact('rumahSakits', 'title'));
     }
 
     public function filter($id = null)

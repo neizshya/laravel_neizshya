@@ -10,8 +10,9 @@ class RumahSakitController extends Controller
 {
     public function index()
     {
-        $items = RumahSakit::all();
-        return view('rumah_sakit.index', compact('items'));
+        $rs = RumahSakit::all();
+        $title = "List Rumah Sakit";
+        return view('rumah_sakit.index', compact('rs', 'title'));
     }
 
     public function create()
@@ -40,5 +41,13 @@ class RumahSakitController extends Controller
     {
         $rumahSakit->delete();
         return redirect()->route('rumah-sakit.index');
+    }
+
+    public function destroyAjax($id)
+    {
+        $rs = RumahSakit::findOrFail($id);
+        $rs->delete();
+
+        return response()->json(['success' => true]);
     }
 }

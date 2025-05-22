@@ -1,3 +1,4 @@
+@extends('layouts.login')
 @section('content')
     <div class="container align-items-center">
         <div class="row justify-content-center align-items-center" style="min-height:95vh">
